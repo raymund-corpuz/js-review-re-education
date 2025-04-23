@@ -144,7 +144,7 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-const book = getBook(1);
+const book = getBook(3);
 
 // const title = book.title;
 // const author = book.author;
@@ -171,6 +171,7 @@ endGenres;
 const startGenres = ["epic fantacy", ...genres];
 startGenres;
 
+/*
 const updatedBook = {
   ...book,
   // Adding new Property
@@ -199,3 +200,41 @@ console.log(false && "Some string");
 // 'false'
 console.log(hasMovieAdaptation && "This book has a movie");
 // 'This book has a movie'
+
+console.log(true || "Somestring");
+console.log(false || "Somestring");
+
+console.log(book.translations.spanish);
+
+// //IF the result is falsy value
+// const spanishTranslation = book.translations.spanish || "Not Translated";
+// spanishTranslation; //"Not Translated"
+
+// const count = book.reviews.librarything.reviewsCount ?? "No Data";
+// count; // 0
+
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  //OPTIONAL CHAINING "?"
+  // NULLISH COALESCING "??"
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  librarything; //"undefined"
+  return goodreads + librarything;
+}
+console.log(getTotalReviewCount(book)); //"NaN";
+*/
+
+//MAPPING AN ARRAY
+const books = getBooks();
+//Formula = Array.map(callBack function)
+const titles = books.map((book) => book.title);
+titles; //'The Lord of the Rings', 'The Cyberiad', 'Dune',
+
+//MAPPING AN ARRAY  OF OBJECT
+const essentialData = books.map((book) => {
+  return {
+    title: book.title,
+    author: book.author,
+  };
+});
+essentialData;
