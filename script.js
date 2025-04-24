@@ -135,6 +135,7 @@ const data = [
     },
   },
 ];
+/*
 
 function getBooks() {
   return data;
@@ -170,7 +171,7 @@ endGenres;
 // Add at the start of the array
 const startGenres = ["epic fantacy", ...genres];
 startGenres;
-
+*/
 /*
 const updatedBook = {
   ...book,
@@ -223,7 +224,7 @@ function getTotalReviewCount(book) {
 }
 console.log(getTotalReviewCount(book)); //"NaN";
 */
-
+/*
 //MAPPING AN ARRAY
 const books = getBooks();
 //Formula = Array.map(callBack function)
@@ -285,3 +286,14 @@ const booksAfterUpdate = newbooksAfterDelete.map((book) =>
   book.id === 1 ? { ...book, pages: 1210 } : book
 );
 booksAfterUpdate; //{ id: 1,pages: 1210,}
+*/
+
+console.log("jonas");
+
+async function getTodos() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  console.log(data);
+}
+
+getTodos();
