@@ -144,7 +144,7 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-const book = getBook(3);
+const book = getBook(1);
 
 // const title = book.title;
 // const author = book.author;
@@ -252,3 +252,36 @@ adventureBooks;
 // Reduce Method returns ( Callback Func, Starter value )
 const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
 pagesAllBooks;
+
+// a is the current value, b is the next value
+const x = [3, 7, 2, 9, 1, 0];
+const sorted = x.sort((a, b) => a - b);
+sorted; // [0,1,2,3,7,9]
+// creates a copy of the original array
+const arr = [3, 7, 2, 9, 1, 0];
+const arrSorted = arr.slice().sort((a, b) => a - b);
+arrSorted; // [0,1,2,3,7,9]
+//Sorting an Object
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+sortedByPages; // { id: 5, title: 'A Game of Thrones', pages: 835,}
+
+//1) Add book object to array
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of Sucess",
+  author: "J.K.Rowling",
+};
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd; // [...Array,{ id: 6, title: 'Harry Potter and the Chamber of Sucess', author: 'J.K.Rowling' } ]
+
+//2) Delete book object from the array
+// Filter creates a new Array where id = 3 is not true therfore it will not show up
+const newbooksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+newbooksAfterDelete;
+
+// 3) Update a book object in the array
+// arr.map(callback func (ternary operat ? {object -update the obj.pages}: []))
+const booksAfterUpdate = newbooksAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1210 } : book
+);
+booksAfterUpdate; //{ id: 1,pages: 1210,}
